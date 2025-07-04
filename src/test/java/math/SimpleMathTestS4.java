@@ -10,6 +10,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 @DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTestS4 {
@@ -20,7 +25,19 @@ class SimpleMathTestS4 {
     void beforeEachMethod() {
         math = new SimpleMath();
     }
-    
+//    A string não é nula
+// @ValueSource(strings = {"Pele","Sena","Keith Moon"})
+//    A string está no formato certo
+//
+//    A string contém algum valor esperado
+//
+//    Ou qualquer validação simples com valores fixos que você já conhece
+    @ParameterizedTest
+    @ValueSource(strings = {"Pele","Sena","Keith Moon"})
+    void testValueSource(String firsName) {
+    	System.out.println(firsName);
+    	assertNotNull(firsName);
+    } 
     @DisplayName("Test double subtraction [ firstNumber, secondNumber, expected]")
 
     @ParameterizedTest
